@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Booking System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select, input, button {
+            margin-bottom: 16px;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #showtimes {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #showtimes button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #showtimes button:hover {
+            background-color: #218838;
+        }
+
+        #bookingForm {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #bookingForm button {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        #bookingForm button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Booking System</h1>
+        
+        <!-- Movie Search Form -->
+        <form id="movieSearchForm">
+            <label for="movie">Select Movie:</label>
+            <select id="movie" name="movie">
+                <option value="movie1">Movie 1</option>
+                <option value="movie2">Movie 2</option>
+                <!-- Add more movie options -->
+            </select>
+
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <button type="button" onclick="searchShowtimes()">Search Showtimes</button>
+        </form>
+
+        <!-- Showtimes Display -->
+        <div id="showtimes">
+            <!-- Showtimes will be displayed here dynamically -->
+        </div>
+
+        <!-- Booking Form (for illustration purposes) -->
+        <form id="bookingForm">
+            <!-- Add fields for user details and seat selection -->
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for handling dynamic content loading
+        function searchShowtimes() {
+            // Replace this with actual logic to fetch showtimes based on selected movie and date
+            const movie = document.getElementById('movie').value;
+            const date = document.getElementById('date').value;
+
+            // For illustration purposes, display sample showtimes
+            const showtimes = ['12:00 PM', '3:00 PM', '6:00 PM', '9:00 PM'];
+
+            // Display showtimes in the showtimes div
+            const showtimesDiv = document.getElementById('showtimes');
+            showtimesDiv.innerHTML = '<h2>Showtimes</h2>';
+
+            if (showtimes.length > 0) {
+                showtimes.forEach(time => {
+                    const button = document.createElement('button');
+                    button.innerText = time;
+                    button.addEventListener('click', () => showBookingForm(time));
+                    showtimesDiv.appendChild(button);
+                });
+            } else {
+                showtimesDiv.innerHTML += '<p>No showtimes available for the selected movie and date.</p>';
+            }
+        }
+
+        // For illustration purposes, show a booking form when a showtime is selected
+        function showBookingForm(time) {
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm.style.display = 'flex';
+            bookingForm.innerHTML = `<h2>Book Tickets for ${time}</h2>`;
+            // Add fields for user details and seat selection in the booking form
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Movie Ticket Booking System</h1>
+
+        <!-- Theatre Dropdown -->
+        <label for="theatre">Select Theatre:</label>
+        <select id="theatre" class="dropdown" onchange="loadMovies()">
+            <option value="" disabled selected>Select Theatre</option>
+            <option value="theatre1">Aries Plex</option>
+            <option value="theatre2">New Theatre</option>
+            <option value="theatre3">Central Theatre</option>
+
+        </select>
+
+        <!-- Movie Dropdown -->
+        <label for="movie">Select Movie:</label>
+        <select id="movie" class="dropdown" onchange="loadDates()" disabled>
+            <option value="" disabled selected>Select Movie</option>
+        </select>
+
+        <!-- Date Dropdown -->
+        <label for="date">Select Date:</label>
+        <select id="date" class="dropdown" onchange="loadShowtimes()" disabled>
+            <option value="" disabled selected>Select Date</option>
+        </select>
+
+        <!-- Showtimes Buttons -->
+        <div id="showtimes-container">
+            <!-- Showtimes will be populated dynamically based on the selected date -->
+        </div>
+
+        <!-- Halls and Seats Information -->
+        <div id="hall-info">
+            <!-- Hall and seat information will be displayed dynamically based on the selected showtime -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
